@@ -1,7 +1,10 @@
 class ArticlesController < ApplicationController
+    # Una varianle de instancia, @variable, esta disponible dentro de la vista correspondiente, mientras que una variable local, variable, solo esta disponible dentro del controlador
+     
     def show
+        @article = Article.find(params[:id])
     end
-    
+
     def new
         @article = Article.new
         puts "Hello"
