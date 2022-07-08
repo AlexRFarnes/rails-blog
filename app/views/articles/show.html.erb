@@ -2,3 +2,7 @@
 <div>
     <%= @article.content %> <%# el nombre content viene del nombre que se le haya dado dentro del modelo has_rich_text :content  %>
 </div>
+
+<div>
+    <%= link_to "Eliminar articulo",  @article, method: :delete %>
+</div>
