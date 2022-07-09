@@ -1,7 +1,12 @@
 class ArticlesController < ApplicationController
     # Una variable de instancia, @variable, esta disponible dentro de la vista correspondiente, mientras que una variable local, variable, solo esta disponible dentro del controlador
-    before_action :find_article, only: [:show, :edit, :update, :destroy] # except: [:new, :create]
+    before_action :find_article, only: [:show, :edit, :update, :destroy] # except: [:new, :create, :index]
+    # before_action :find_article, except: [:new, :create, :index]
     # after_action 
+
+    def index
+        @articles = Article.all
+    end
      
     def show
     end
