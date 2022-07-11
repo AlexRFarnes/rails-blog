@@ -1,8 +1,5 @@
-<h1>Mis Articulos</h1>
-
-<% @articles.each do |article| %>
-    <div>
-        <%= article.id %>
-        <%= article.title %>
-    </div>
-<% end %>
+<div class="large-container center-block">
+    <h1>Mis Articulos</h1>
+    <%# Pasar el nombre de la coleccion, no del parcial. En este caso la variable de instancia @articles %>
+    <%= render @articles %>
+</div>

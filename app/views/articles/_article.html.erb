@@ -1,0 +1,11 @@
+<%# Este parcial se debe llamar como el modelo (ie. Article) en miniscula (article) y el _ porque es un parcial  %>
+<%# la variable article no lleva el @ porque Rails internamente lo pasa como una variable local del parcial %>
+<div class="card padding margin-top" >
+    <h3 class="text-uppercase">
+        <%= article.title %>
+    </h3>
+    <p class="text-secondary">
+        <%= article.created_at %>
+    </p>
+    <%= link_to "Ver mas", article %>
+</div>
