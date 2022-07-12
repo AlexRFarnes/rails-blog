@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   # resource      # who answers to the resource (controller#action)
   get "welcome", to: "home#index"
   
