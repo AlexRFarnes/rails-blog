@@ -1,8 +1,14 @@
-<h1><%= @article.title %></h1>
-<div>
-    <%= @article.content %> <%# el nombre content viene del nombre que se le haya dado dentro del modelo has_rich_text :content  %>
-</div>
+<div class="small-container center-block">
+    <h1><%= @article.title %></h1>
+    
+    <div>
+        <p>Escrito por <strong><%= @article.user.email %></strong></p>
+    </div>
+    <div>
+        <%= @article.content %> <%# el nombre content viene del nombre que se le haya dado dentro del modelo has_rich_text :content  %>
+    </div>
 
-<div>
-    <%= link_to "Eliminar articulo",  @article, method: :delete %>
+    <div>
+        <%= link_to "Eliminar articulo",  @article, method: :delete %>
+    </div>
 </div>

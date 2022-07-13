@@ -1,0 +1,6 @@
+<div class="large-container center-block">
+    <h1>Articulos publicados por <%= @user.email %></h1>
+    <%# Pasar el nombre de la coleccion, no del parcial. En este caso la variable de instancia @articles %>
+    <%# Si al metodo render se le pasa una coleccion, busca el parcial adecuado %>
+    <%= render @user.articles %>
+</div>

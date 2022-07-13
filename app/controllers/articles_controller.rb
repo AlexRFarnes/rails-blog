@@ -26,14 +26,20 @@ class ArticlesController < ApplicationController
 
     def create
         # paras[:article] porque al construir el formulario se esta haciendo con base en un objeto del tipo Article y luego usamos el nombre del control [:control_name] 
-        @article = Article.create(title: params[:article][:title], content: params[:article][:content])
+        # @article = Article.create(title: params[:article][:title], content: params[:article][:content], user: current_user)
+        @article = current_user.articles.create(title: params[:article][:title], content: params[:article][:content])
         # Display in json format
-        render json: @article
+        # render json: @article
+        redirect_to @article
     end
 
     def destroy
         @article.destroy
         redirect_to root_path
+    end
+
+    def from_author
+        @user = User.find(params[:user_id])
     end
 
     def find_article
