@@ -16,7 +16,8 @@ class ArticlesController < ApplicationController
     end
 
     def update
-        @article.update(title: params[:article][:title], content: params[:article][:content])
+        # @article.update(title: params[:article][:title], content: params[:article][:content])
+        @article.update(article_params)
         redirect_to @article
     end
 
@@ -27,7 +28,8 @@ class ArticlesController < ApplicationController
     def create
         # paras[:article] porque al construir el formulario se esta haciendo con base en un objeto del tipo Article y luego usamos el nombre del control [:control_name] 
         # @article = Article.create(title: params[:article][:title], content: params[:article][:content], user: current_user)
-        @article = current_user.articles.create(title: params[:article][:title], content: params[:article][:content])
+        # @article = current_user.articles.create(params[:article])
+        @article = current_user.articles.create(article_params)
         # Display in json format
         # render json: @article
         redirect_to @article
@@ -44,5 +46,9 @@ class ArticlesController < ApplicationController
 
     def find_article
         @article = Article.find(params[:id])
+    end
+
+    def article_params
+        params.require(:article).permit(:title, :content)
     end
 end
