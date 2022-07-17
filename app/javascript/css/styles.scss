@@ -32,7 +32,7 @@
     }
     input {
         @extend .form-control;
-        @extend .bg-light;
+        // @extend .bg-light;
     }
     input[type="checkbox"] {
         display: inline-block;

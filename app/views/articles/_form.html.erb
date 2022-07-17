@@ -6,11 +6,32 @@
     </div>
 
     <div class="field">
+    <%= form.label :category_elements, "Categories" %>
+        <div class="row">
+            <% @categories.each do |category| %>
+                <div class="col-6 col-sm-4">
+                    <div class="form-check">
+                        <label class="form-check-label">
+                        <%= form.check_box :category_elements, {multiple: true, checked: @article.categories.include?(category), class:"form-check-input"}, category.id %>
+                        <%# category.id is the value if the checkbox is activated %>
+                        <%= category.title %>
+                        </label>
+                    </div>
+                </div>
+            <% end %>
+        </div>
+    </div>
+
+    <div class="field">
         <%= form.label :content %>
         <%= form.rich_text_area :content %>
     </div>
-    
+
     <div class="field">
         <%= form.submit  %>
     </div>
 <% end %>
+
+
+<%# form.label :Categories %>
+<%# form.collection_check_boxes(:category_ids, Category.all, :id, :title) %> 
