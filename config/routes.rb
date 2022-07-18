@@ -1,13 +1,15 @@
 Rails.application.routes.draw do
-  resources :categories
   devise_for :users
   # resource      # who answers to the resource (controller#action)
   get "welcome", to: "home#index"
+  get "profile", to: "users#edit"
+  resources :users, only: [:update]
   
   root to: "home#index"
-
+  
   # get "articles/user/:user_id", to: "articles#from_author"
-
+  
+  resources :categories
   resources :articles do 
     get "user/:user_id", to: "articles#from_author", on: :collection
   end
